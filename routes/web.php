@@ -36,12 +36,12 @@ Route::post('/order','CartController@update');
 //Grupo de rutas del middleware, para agrupar todas las paginas de administrador
 Route::middleware(['auth','admin'])->prefix('admin')->namespace('Admin')->group(function () {
 	//rutas para el CRUD de VENTAS
-    Route::get('/products','productController@index'); //listado de productos
-	Route::get('/products/create','productController@create'); //formulario
-	Route::post('/products','productController@store'); //guardar datos que el usuario ingresa
-	Route::get('/products/{id}/edit','productController@edit'); //formulario edicion
-	Route::post('/products/{id}/edit','productController@update'); //actualizar los datos
-	Route::delete('/products/{id}','productController@destroy'); //formulario de eliminar
+    Route::get('/products','ProductController@index'); //listado de productos
+	Route::get('/products/create','ProductController@create'); //formulario
+	Route::post('/products','ProductController@store'); //guardar datos que el usuario ingresa
+	Route::get('/products/{id}/edit','ProductController@edit'); //formulario edicion
+	Route::post('/products/{id}/edit','ProductController@update'); //actualizar los datos
+	Route::delete('/products/{id}','ProductController@destroy'); //formulario de eliminar
 
 	Route::get('/products/{id}/images','ImageController@index'); //formulario de imagenes
 	Route::post('/products/{id}/images','ImageController@store'); //subir las imagenes
