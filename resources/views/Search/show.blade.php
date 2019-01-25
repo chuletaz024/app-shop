@@ -36,7 +36,7 @@
             <div class="row">
                 <div class="profile">
                     <div class="avatar">
-                        <img src="src="" alt="Imagen representativa de una lupa representativa"" class="img-circle img-responsive img-raised">
+                        <img src="/img/search.jpg" alt="Imagen representativa de una lupa representativa"" class="img-circle img-responsive img-raised">
                     </div>
 
                     <div class="name">
@@ -83,7 +83,7 @@
     </div>
 </div>
             <!-- Modal Core -->
-            <div class="modal fade" id="modalAddToCart" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            {{-- <div class="modal fade" id="modalAddToCart" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -103,7 +103,7 @@
                   </form>                
                 </div>
               </div>
-            </div>
+            </div> --}}
    
 
 @include('includes.footer')        

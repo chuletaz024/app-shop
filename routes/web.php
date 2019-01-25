@@ -20,13 +20,15 @@ Route::get('/mantenimiento','MantenimientoController@mantenimiento');
 Route::get('/cotizacion','CotizacionController@cotizacion');
 
 Auth::routes();
-
+//Rutas de busqueda
+Route::get('/search','SearchController@show');
+//Ruta para tener los datos de productos en formato json
+Route::get('/products/json','SearchController@data');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/products/{id}','ProductController@show'); //formulario
 Route::get('/categories/{category}','CategoryController@show');
 
-Route::get('/search','SearchController@show');
 
 Route::post('/cart','CartDetailController@store');
 Route::delete('/cart','CartDetailController@destroy');
