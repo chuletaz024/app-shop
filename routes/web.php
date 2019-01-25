@@ -12,12 +12,19 @@
 */
 
 Route::get('/', 'TestController@welcome');
+//Rutas de las otras secciones
 Route::get('/rent','RentController@rent');
-
 Route::get('/about','AboutController@about');
 Route::get('/asesoria','AsesoriaController@asesoria');
 Route::get('/mantenimiento','MantenimientoController@mantenimiento');
 Route::get('/cotizacion','CotizacionController@cotizacion');
+
+//Rutas para resetear la contraseña
+Route::get('password/reset', 'Auth\ForgotPasswordController@ShowLinkRequestForm')->name('password.request');
+Route::get('password/email', 'Auth\ForgotPasswordController@SendResetLinkEmail')->name('password.email');
+Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+Route::post('password/reset', 'Auth\ResetPasswordController@reset');
+
 
 Auth::routes();
 //Rutas de busqueda
@@ -29,10 +36,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/products/{id}','ProductController@show'); //formulario
 Route::get('/categories/{category}','CategoryController@show');
 
-
+//Rutas para el detalle del carrito
 Route::post('/cart','CartDetailController@store');
 Route::delete('/cart','CartDetailController@destroy');
 
+//Ruta para ver la orden del cliente, aun no esta hecho
 Route::post('/order','CartController@update');
 
 //Grupo de rutas del middleware, para agrupar todas las paginas de administrador
@@ -83,3 +91,7 @@ Route::middleware(['auth','admin'])->prefix('admin')->namespace('Admin')->group(
 
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
