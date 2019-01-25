@@ -68,9 +68,9 @@
                                 <ul class="dropdown-menu" role="menu">
                                     <li>  
                                         
-                                        @foreach ($categories as $category)
+                                        {{-- @foreach ($categories as $category)
                                         <a href="{{ url('/categories/'.$category->id) }}">{{  $category->name }}</a>
-                                        @endforeach
+                                        @endforeach --}}
                                     </li>                         
                                 </ul>
       
