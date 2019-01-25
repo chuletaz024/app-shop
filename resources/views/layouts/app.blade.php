@@ -19,12 +19,20 @@
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/material-kit.css') }}" rel="stylesheet"/>
     @yield('styles')
+    <style>
+        #logo {
+            width: 35%;
+        }
+    </style>
 </head>
 
 <body class="@yield('body-class')">
 
     <nav class="navbar navbar-transparent navbar-absolute">
         <div class="container">
+            <a class="navbar-brand" href="{{ url('/') }}">
+                <img src="/img/logo.png"  id="logo" >
+            </a>
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example">
@@ -33,7 +41,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ url('/') }}"><img src="img/logo.png" width="200" height="150"  ></a>
+                
             </div>
 
             <div class="collapse navbar-collapse" id="navigation-example">
@@ -46,19 +54,6 @@
                     </li>
                     
                     
-                    {{-- <li class="nav-item dropdown">
-
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Venta
-                        </a>
-                        
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            @foreach ($categories as $category)
-                          <a class="dropdown-item nav-item" href="{{ url('/categories/'.$category->id) }}">{{  $category->name }}</a>
-                          @endforeach
-                        </div>
-                        
-                      </li> --}}
                       <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>Venta
                                 <span class="caret"></span>

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','INTERMAQ | Dashboard')
+@section('title','INTERMAQ | Categorias')
 
 @section('body-class', 'profile-page')
 
