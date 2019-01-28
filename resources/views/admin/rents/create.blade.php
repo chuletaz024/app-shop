@@ -13,7 +13,7 @@
             <div class="container">
                 
                 <div class="section">
-                    <h2 class="title text-center">Registrar nuevo producto</h2>
+                    <h2 class="title text-center">Registrar nuevo producto en renta</h2>
 
                     @if ($errors->any())
                         <div class="alert alert-danger">
@@ -26,7 +26,7 @@
                             </ul>
                         </div>
                     @endif
-                    <form action="{{ url('/admin/productrents') }}" method="post" >
+                    <form action="{{ url('/admin/rents') }}" method="post" >
                         @csrf
                         <div class="row">
                             <div class="col-sm-6">
@@ -71,7 +71,7 @@
                         <textarea class="form-control" placeholder="Descripcion extensa del producto" name="long_description" rows="5">{{ old('long_description') }}</textarea>
 
                         <button class="btn btn-primary">Registrar producto</button>
-                        <a href="{{ url('/admin/productrents') }}" class="btn btn-default">Cancelar</a>
+                        <a href="{{ url('/admin/rents') }}" class="btn btn-default">Cancelar</a>
                     </form>
 
                 </div>

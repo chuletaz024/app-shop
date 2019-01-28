@@ -10,20 +10,26 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+// Ruta::metodo('direccion de la vista','NombredeControlador@ClasesDelControlador')
 Route::get('/', 'TestController@welcome');
 //Rutas de las otras secciones
-Route::get('/rent','RentController@rent');
+Route::get('/rent','RentViewController@rent');
 Route::get('/about','AboutController@about');
 Route::get('/asesoria','AsesoriaController@asesoria');
 Route::get('/mantenimiento','MantenimientoController@mantenimiento');
 Route::get('/cotizacion','CotizacionController@cotizacion');
 
 //Rutas para resetear la contraseña
-Route::get('password/reset', 'Auth\ForgotPasswordController@ShowLinkRequestForm')->name('password.request');
-Route::get('password/email', 'Auth\ForgotPasswordController@SendResetLinkEmail')->name('password.email');
-Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
-Route::post('password/reset', 'Auth\ResetPasswordController@reset');
+Route::get('/password/reset', 'Auth\ForgotPasswordController@ShowLinkRequestForm')->name('password.request');
+Route::get('/password/email', 'Auth\ForgotPasswordController@SendResetLinkEmail')->name('password.email');
+Route::get('/password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+Route::post('/password/reset', 'Auth\ResetPasswordController@reset');
+//Acaba Rutas para resetear password
+
+
+
+
+
 
 
 Auth::routes();
@@ -67,21 +73,33 @@ Route::middleware(['auth','admin'])->prefix('admin')->namespace('Admin')->group(
 
 	//Rutas para el CRUD de RENTAS
 	//renta empieza
-	Route::get('/productrents', 'ProductRentController@index'); //listado de los productos
-	Route::get('/productrents/create', 'ProductRentController@create'); //creacion de los productos
-	Route::post('/productrents','ProductRentController@store'); //Guardado de los productos
-	Route::get('/productrents/{id}/edit', 'ProductRentController@edit'); //edicion de los productos
-	Route::post('/productrents/{id}/edit','ProductRentController@update');
-	Route::delete('/productrents/{id}','ProductRentController@destroy');
+	// Route::get('/productrents', 'ProductRentController@index'); //listado de los productos
+	// Route::get('/productrents/create', 'ProductRentController@create'); //creacion de los productos
+	// Route::post('/productrents','ProductRentController@store'); //Guardado de los productos
+	// Route::get('/productrents/{id}/edit', 'ProductRentController@edit'); //edicion de los productos
+	// Route::post('/productrents/{id}/edit','ProductRentController@update');
+	// Route::delete('/productrents/{id}','ProductRentController@destroy');
 
-	Route::get('/productrents/{id}/images','ImageRentController@index'); //formulario de imagenes
-	Route::post('/productrents/{id}/images','ImageRentController@store'); //subir las imagenes
-	Route::delete('/productrents/{id}/images','ImageRentController@destroy'); //eliminar las imagenes
-	Route::get('/productrents/{id}/images/select/{image}','ImageRentController@select'); //destacar imagen
+	// Route::get('/productrents/{id}/images','ImageRentController@index'); //formulario de imagenes
+	// Route::post('/productrents/{id}/images','ImageRentController@store'); //subir las imagenes
+	// Route::delete('/productrents/{id}/images','ImageRentController@destroy'); //eliminar las imagenes
+	// Route::get('/productrents/{id}/images/select/{image}','ImageRentController@select'); //destacar imagen
+	//renta acaba
 
+	//CRUD PARA LA SECCION DE RENTA (NUEVO)
+	Route::get('/rents', 'RentController@index'); //listado de rentas
+	Route::get('/rents/create', 'RentController@create');
+	Route::post('/rents', 'RentController@store');
+	Route::get('/rents/{id}/edit', 'RentController@edit'); //edicion de los productos
+	Route::post('/rents/{id}/edit','RentController@update');
+	Route::delete('/rents/{id}','RentController@destroy');
 
-//renta acaba
-	
+	Route::get('/rents/{id}/images','RentImageController@index'); //formulario de imagenes
+	Route::post('/rents/{id}/images','RentImageController@store'); //subir las imagenes
+	Route::delete('/rents/{id}/images','RentImageController@destroy'); //eliminar las imagenes
+	Route::get('/rents/{id}/images/select/{image}','RentImageController@select'); //destacar imagen
+	// TERMINA EL CRUD NUEVO
+		
 
 });
 
@@ -92,6 +110,3 @@ Route::middleware(['auth','admin'])->prefix('admin')->namespace('Admin')->group(
 
 
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

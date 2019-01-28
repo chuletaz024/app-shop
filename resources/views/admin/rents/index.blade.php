@@ -18,7 +18,7 @@
 
                     <div class="team">
                         <div class="row">
-                            <a href="{{ url('/admin/productrents/create') }}" class="btn btn-primary btn-round">Nuevo producto</a>
+                            <a href="{{ url('/admin/rents/create') }}" class="btn btn-primary btn-round">Nuevo producto</a>
                            <table class="table">
                                 <thead>
                                     <tr>
@@ -42,17 +42,17 @@
                                         <td class="text-right">&#36; {{ $productrent->price }}</td>
                                         <td class="td-actions text-right">
                                             
-                                            <form action="{{ url('/admin/productrents/'.$productrent->id) }}" method="post">
+                                            <form action="{{ url('/admin/rents/'.$productrent->id) }}" method="post">
                                                 @csrf
                                                 {{ method_field('DELETE') }}
 
                                                 <a href="" type="button" rel="tooltip" title="Ver producto" class="btn btn-info btn-simple btn-xs" target="_blank">
                                                     <i class="fa fa-info"></i>
                                                 </a>
-                                                <a href="{{ url('/admin/productrents/'.$productrent->id.'/edit') }}" type="button" rel="tooltip" title="Editar producto" class="btn btn-success btn-simple btn-xs">
+                                                <a href="{{ url('/admin/rents/'.$productrent->id.'/edit') }}" type="button" rel="tooltip" title="Editar producto" class="btn btn-success btn-simple btn-xs">
                                                     <i class="fa fa-edit"></i>
                                                 </a>
-                                                <a href="{{ url('/admin/productrents/'.$productrent->id.'/images') }}" type="button" rel="tooltip" title="Imagenes del producto" class="btn btn-warning btn-simple btn-xs">
+                                                <a href="{{ url('/admin/rents/'.$productrent->id.'/images') }}" type="button" rel="tooltip" title="Imagenes del producto" class="btn btn-warning btn-simple btn-xs">
                                                     <i class="fa fa-image"></i>
                                                 </a>
                                                 <button type="submit" rel="tooltip" title="Eliminar producto" class="btn btn-danger btn-simple btn-xs">

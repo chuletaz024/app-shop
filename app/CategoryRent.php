@@ -9,6 +9,6 @@ class CategoryRent extends Model
 	//$category->products
     public function products()
     {
-    	return $this->hasMany(ProductRent::class);
+    	return $this->hasMany(ProductRent::class,'category_id');
     }
 }

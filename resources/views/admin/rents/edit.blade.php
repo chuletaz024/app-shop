@@ -26,7 +26,7 @@
                         </div>
                     @endif
 
-                    <form action="{{ url('/admin/productrents/'.$product->id.'/edit') }}" method="post" >
+                    <form action="{{ url('/admin/rents/'.$product->id.'/edit') }}" method="post" >
                         @csrf
                         <div class="row">
                             <div class="col-sm-6">
@@ -71,7 +71,7 @@
                         <textarea class="form-control" placeholder="Descripcion extensa del producto" name="long_description" rows="5">{{ old('long_description',$product->long_description) }}</textarea>
 
                         <button class="btn btn-primary"> Guardar cambios</button>
-                        <a href="{{ url('/admin/productrents') }}" class="btn btn-default">Cancelar</a>
+                        <a href="{{ url('/admin/rents') }}" class="btn btn-default">Cancelar</a>
                     </form>
 
                 </div>

@@ -28,7 +28,7 @@
 
 <body class="@yield('body-class')">
 
-    <nav class="navbar navbar-transparent navbar-absolute">
+    <nav class="navbar navbar-transparent navbar-absolute ">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
                 <img src="/img/logo.png"  id="logo" >
@@ -52,14 +52,12 @@
                     <li>
                         <a href="{{ url('/rent') }}" class="nav-item">Renta</a>
                     </li>
-                    
-                    
-                      <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>Venta
-                                <span class="caret"></span>
-                            </a>
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"  aria-expanded="false" >Venta
+                            <span class="caret"></span>
+                        </a>
 
-                            <div>
+                            
                                 <ul class="dropdown-menu" role="menu">
                                     <li>  
                                         
@@ -69,7 +67,7 @@
                                     </li>                         
                                 </ul>
       
-                            </div>
+                            
                         </li>
                       
                     <li>
@@ -93,7 +91,7 @@
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
 
-                        <div>
+                        
                             <ul class="dropdown-menu" role="menu">
                                 <li>
                                     <a href="{{ url('/home') }}">Panel de control</a>
@@ -107,7 +105,7 @@
                                     <a href="{{ url('/admin/categories') }}">Gestionar categorias de venta</a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/admin/productrents') }}">Gestionar productos de renta</a>
+                                    <a href="{{ url('/admin/rents') }}">Gestionar productos de renta</a>
                                 </li>
                                 @endif
                                 <li>
@@ -123,7 +121,7 @@
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
                             </form>
-                        </div>
+                        
                     </li>
                 @endguest
                     <!-- <li>

@@ -8,7 +8,7 @@ class ProductImageRent extends Model
 {
     public function product()
     {
-    	return $this->belongsTo(ProductRent::class);
+    	return $this->belongsTo(ProductRent::class, 'rent_id');
     }
     //accesor
     public function getUrlAttribute()

@@ -12,7 +12,7 @@
 <div class="main main-raised">
     <div class="container">       
         <div class="section text-center">
-            <h2 class="title">Imagenes del producto "{{ $product->name}}"  </h2>
+            <h2 class="title">Imagenes del producto "{{ $rent->name }}"  </h2>
 
             <form action="" method="post" enctype="multipart/form-data">
                 @csrf
@@ -20,18 +20,18 @@
                 <button type="submit" class="btn btn-primary btn-round">
                     Subir nueva imagen
                 </button>
-                <a href="{{ url('/admin/productrents') }}" class="btn btn-default btn-round">
+                <a href="{{ url('/admin/rents') }}" class="btn btn-default btn-round">
                 Volver al listado de productos
                 </a>
             </form>
             <hr>
             
             <div class="row">
-                @foreach ($images as $image)
+                @foreach ($rentimages as $image)
                 <div class="col-md-4">
                     <div class="panel panel-default">
                         <div class="pane-body">
-                            <img src="{{ $image->url }} {{-- {{ $image->image }} --}}" alt="" width="250" height="250"> 
+                            <img src="{{ $image->url }}" alt="" width="250" height="250"> 
                             <form action="" method="post">
                                 @csrf
                                 {{ method_field('DELETE') }}
@@ -40,11 +40,11 @@
                                     Eliminar imagen
                                 </button>
                                 @if ($image->featured)
-                                <button type="button" href="{{ url('/admin/products/'.$product->id.'/images/select/'.$image->id) }}" class="btn btn-info btn-fab btn-fab-mini btn-round" rel="tooltip" title="Imagen destacada de este producto">
+                                <button type="button" href="{{ url('/admin/rents/'.$rent->id.'/images/select/'.$image->id) }}" class="btn btn-info btn-fab btn-fab-mini btn-round" rel="tooltip" title="Imagen destacada de este producto">
                                     <i class="material-icons">favorite</i>
                                 </button>
                                 @else
-                                <a href="{{ url('/admin/products/'.$product->id.'/images/select/'.$image->id) }}" class="btn btn-primary btn-fab btn-fab-mini btn-round">
+                                <a href="{{ url('/admin/rents/'.$rent->id.'/images/select/'.$image->id) }}" class="btn btn-primary btn-fab btn-fab-mini btn-round">
                                     <i class="material-icons">favorite</i>
                                 </a>
                                 @endif

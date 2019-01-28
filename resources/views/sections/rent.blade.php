@@ -56,16 +56,16 @@
                         <h2 class="title">Productos en renta</h2>
                         <div class="row">
 
-                            @foreach ($products as $productrent)
+                            @foreach ($rents as $rent)
                             <div class="col-md-4">
                                 <div class="team-player">
-                                    <img src="{{-- {{ $productrent->images()->first()->image }} --}}" alt="Imagen representativa de la categoria " class="img-raised img-circle">
-
+                                    <img src="{{ $rent->featuredImageUrl }}" alt="Imagen representativa de la categoria " class="img-raised img-circle">
+                
                                     <h4 class="title">
-                                        {{ $productrent->name }} <br>
-                                        <small class="text-muted">{{ $productrent->category['name'] }} </small>
+                                        {{ $rent->name }} <br>
+                                        <small class="text-muted">{{ $rent->rentcategory['name'] }} </small>
                                     </h4>
-                                    <p class="description">{{ $productrent->description }}</p>
+                                    <p class="description">{{ $rent->description }}</p>
                                     
                                 </div>
                             </div>

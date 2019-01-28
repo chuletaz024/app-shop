@@ -14,7 +14,7 @@ class ProductRent extends Model
     // $product->images
     public function images()
     {
-     return $this->hasMany(ProductImageRent::class); 
+     return $this->hasMany(ProductImageRent::class,'rent_id','category_id'); 
     }
     //accesor para ver la imagen destacada del producto
     public function getFeaturedImageUrlAttribute()
