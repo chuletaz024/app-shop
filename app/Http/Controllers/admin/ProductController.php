@@ -6,20 +6,23 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
+use App\RentCategory;
 
 
 class ProductController extends Controller
 {
     public function index()
     {
+        $rents = RentCategory::get();
         $categories = Category::has('products')->get();
     	$products = Product::paginate(10);
-    	return view('admin.products.index')->with(compact('products','categories')); //listado
+    	return view('admin.products.index')->with(compact('products','categories','rents')); //listado
     }
     public function create()
     {
+        $rents = RentCategory::get();
         $categories = Category::orderBy('name')->get();
-    	return view('admin.products.create')->with(compact('categories')); //formulario de registro
+    	return view('admin.products.create')->with(compact('categories','rents')); //formulario de registro
     }
      public function store(Request $request)
     {
@@ -61,10 +64,10 @@ class ProductController extends Controller
 
     public function edit($id)
     {
-        
+        $rents = RentCategory::get();
     	$categories = Category::orderBy('name')->get();
     	$product = Product::find($id);
-    	return view('admin.products.edit')->with(compact('product', 'categories')); //form de edicion
+    	return view('admin.products.edit')->with(compact('product', 'categories','rents')); //form de edicion
     }
      public function update(Request $request, $id)
     {

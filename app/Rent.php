@@ -28,6 +28,14 @@ class Rent extends Model
 
         return '/images/productrents/default.png';
     }
+    public function getRentCategoryNameAttribute()
+    {
+        if ($this->rentcategory) {
+            return $this->rentcategory->name;
+
+        return 'General';
+        }
+    }
 
 
 

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Category;
 use App\CategoryRent;
+use App\Rent;
+use App\RentCategory;
 class TestController extends Controller
 {
     public function welcome()
@@ -12,7 +14,8 @@ class TestController extends Controller
 
     	$categories = Category::has('products')->get();
     	
-    	return view('welcome')->with(compact('categories'));
+    	$rents = RentCategory::get();
+    	return view('welcome')->with(compact('categories','rents'));
 
     	
     }

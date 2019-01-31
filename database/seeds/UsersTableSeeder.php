@@ -18,5 +18,6 @@ class UsersTableSeeder extends Seeder
             'admin'=>true
 
         ]);
+        
     }
 }

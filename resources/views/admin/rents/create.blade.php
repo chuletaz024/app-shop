@@ -57,8 +57,8 @@
                                     <label class="control-label">Categoria del producto</label>
                                     <select class="form-control" name="category_id">
                                         <option value="0">General</option>
-                                        @foreach ($categories as $category)
-                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        @foreach ($rentcategories as $rentcategory)
+                                        <option value="{{ $rentcategory->id }}">{{ $rentcategory->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>

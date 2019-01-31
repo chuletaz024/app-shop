@@ -7,16 +7,18 @@ use Illuminate\Http\Request;
 use App\Rent;
 use App\Category;
 use App\RentImage;
+use App\RentCategory;
 use File;
 
 class RentImageController extends Controller
 {
     public function index($id)
     {
+        $rents = RentCategory::get();
     	$categories = Category::has('products')->get();
     	$rent = Rent::find($id);
     	$rentimages = $rent->rentimages()->orderBy('featured','desc')->get();
-    	return view('admin.products.imagerent.index')->with(compact('rent','rentimages','categories'));
+    	return view('admin.products.imagerent.index')->with(compact('rent','rentimages','categories','rents'));
 
     }
     public function store(Request $request, $id)

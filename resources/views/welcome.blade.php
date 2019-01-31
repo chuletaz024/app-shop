@@ -91,7 +91,7 @@
                         </button>
                     </form>
                     <div class="team">
-                        <h2 class="title">Productos en venta</h2>
+                        <h2 class="title">Categorias de maquinaria en venta</h2>
                         <div class="row">
 
                             @foreach ($categories as $category)
@@ -112,6 +112,34 @@
                             @endforeach
                         </div>      
                     </div>
+
+                    <div class="team">
+                        <h2 class="title">Categorias de maquinaria en renta</h2>
+                        <div class="row">
+
+                            @foreach ($rents as $rent)
+                            <div class="col-md-4">
+                                <div class="team-player card">
+                                    <img src="{{ $rent->featuredImageUrl }}" alt="Imagen representativa de la categoria " class="img-raised img-circle">
+                
+                                    <h4 class="title">
+                                       <a href="{{ url('/rents/'.$rent->id) }}">{{ $rent->name }}</a>  <br>
+                                        <small class="text-muted">{{ $rent->rentcategory['name'] }} </small>
+                                    </h4>
+                                    <p class="description">{{ $rent->description }}</p>
+                                    
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+
+                        {{-- <div class="text-center">
+                            {{ $rents->links() }}
+                        </div> --}}
+                
+                    </div>
+
+                </div>
 
                     {{-- <div class="team">
                         <h2 class="title">Productos en renta</h2>
@@ -148,20 +176,20 @@
                                     <div class="col-md-6">
                                         <div class="form-group label-floating">
                                             <label class="control-label">Nombre</label>
-                                            <input type="email" class="form-control">
+                                            <input type="text" class="form-control" required="">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group label-floating">
                                             <label class="control-label">Correo electronico</label>
-                                            <input type="email" class="form-control">
+                                            <input type="email" class="form-control" required="">
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="form-group label-floating">
                                     <label class="control-label">Tu mensaje</label>
-                                    <textarea class="form-control" rows="4"></textarea>
+                                    <textarea class="form-control" rows="4" required=""></textarea>
                                 </div>
 
                                 <div class="row">

@@ -58,11 +58,11 @@
 
                             @foreach ($rents as $rent)
                             <div class="col-md-4">
-                                <div class="team-player">
+                                <div class="team-player card">
                                     <img src="{{ $rent->featuredImageUrl }}" alt="Imagen representativa de la categoria " class="img-raised img-circle">
                 
                                     <h4 class="title">
-                                        {{ $rent->name }} <br>
+                                       <a href="{{ url('/rents/'.$rent->id) }}">{{ $rent->name }}</a>  <br>
                                         <small class="text-muted">{{ $rent->rentcategory['name'] }} </small>
                                     </h4>
                                     <p class="description">{{ $rent->description }}</p>
@@ -70,6 +70,10 @@
                                 </div>
                             </div>
                             @endforeach
+                        </div>
+
+                        <div class="text-center">
+                            {{ $rents->links() }}
                         </div>
                 
                     </div>

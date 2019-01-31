@@ -49,9 +49,26 @@
                     <li>
                         <a href="{{ url('/about') }}" class="nav-item">Quienes somos</a>
                     </li>
-                    <li>
+                    {{-- <li>
                         <a href="{{ url('/rent') }}" class="nav-item">Renta</a>
-                    </li>
+                    </li> --}}
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"  aria-expanded="false" >Renta
+                            <span class="caret"></span>
+                        </a>
+
+                            
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>  
+                                        
+                                        @foreach ($rents as $rent)
+                                        <a href="{{ url('/rentcategories/'.$rent->id) }}">{{  $rent->name }}</a>
+                                        @endforeach
+                                    </li>                         
+                                </ul>
+      
+                            
+                        </li>
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"  aria-expanded="false" >Venta
                             <span class="caret"></span>
@@ -106,6 +123,9 @@
                                 </li>
                                 <li>
                                     <a href="{{ url('/admin/rents') }}">Gestionar productos de renta</a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('/admin/rentcategories') }}">Gestionar categorias de renta</a>
                                 </li>
                                 @endif
                                 <li>

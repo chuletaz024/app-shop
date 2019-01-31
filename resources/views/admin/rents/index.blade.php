@@ -36,17 +36,16 @@
                                         <td class="text-center">{{ $productrent->id }}</td>
                                         <td>{{ $productrent->name }}</td>
                                         <td>{{ $productrent->description }}</td>
-                                        <td>{{ $productrent->category ? $productrent->category->name : 'General' }}</td>
-                                        {{-- <td>{{ $product->category ? $product->cagegory->name : 'General' }}</td> --}}
-                                        {{-- <td>{{ $product->category->name }}</td> --}}
-                                        <td class="text-right">&#36; {{ $productrent->price }}</td>
+                                        <td>{{ $productrent->rent_category_name }}</td>
+{{--                                         <td>{{ $productrent->category ? $productrent->rentcategory->name : 'General' }}</td>
+ --}}                                        <td class="text-right">&#36; {{ $productrent->price }}</td>
                                         <td class="td-actions text-right">
                                             
                                             <form action="{{ url('/admin/rents/'.$productrent->id) }}" method="post">
                                                 @csrf
                                                 {{ method_field('DELETE') }}
 
-                                                <a href="" type="button" rel="tooltip" title="Ver producto" class="btn btn-info btn-simple btn-xs" target="_blank">
+                                                <a href="{{ url('/rents/'.$productrent->id) }}" type="button" rel="tooltip" title="Ver producto" class="btn btn-info btn-simple btn-xs" target="_blank">
                                                     <i class="fa fa-info"></i>
                                                 </a>
                                                 <a href="{{ url('/admin/rents/'.$productrent->id.'/edit') }}" type="button" rel="tooltip" title="Editar producto" class="btn btn-success btn-simple btn-xs">

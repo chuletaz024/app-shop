@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
+use App\RentCategory;
 
 class HomeController extends Controller
 {
@@ -24,7 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $rents = RentCategory::get();
         $categories = Category::has('products')->get();
-        return view('home')->with(compact('categories'));
+        return view('home')->with(compact('categories','rents'));
     }
 }

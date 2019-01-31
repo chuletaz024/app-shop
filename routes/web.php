@@ -26,12 +26,6 @@ Route::get('/password/reset/{token}', 'Auth\ResetPasswordController@showResetFor
 Route::post('/password/reset', 'Auth\ResetPasswordController@reset');
 //Acaba Rutas para resetear password
 
-
-
-
-
-
-
 Auth::routes();
 //Rutas de busqueda
 Route::get('/search','SearchController@show');
@@ -40,13 +34,24 @@ Route::get('/products/json','SearchController@data');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/products/{id}','ProductController@show'); //formulario
+Route::get('/rents/{id}','RentController@show');
 Route::get('/categories/{category}','CategoryController@show');
 
-//Rutas para el detalle del carrito
+//Rutas para el detalle del carrito de ventas
 Route::post('/cart','CartDetailController@store');
 Route::delete('/cart','CartDetailController@destroy');
+//Rutas para el detalle del carrito de rentas
+Route::post('/rentcart','RentCartDetailController@store');
+Route::delete('/rentcart','RentCartDetailController@destroy');
+Route::get('/rentcategories/{rentcategory}','RentCategoryController@show');
 
-//Ruta para ver la orden del cliente, aun no esta hecho
+
+
+
+Route::post('/rentorder','RentCartController@update');
+
+
+//Ruta para ver la orden del cliente, 
 Route::post('/order','CartController@update');
 
 //Grupo de rutas del middleware, para agrupar todas las paginas de administrador
@@ -98,6 +103,13 @@ Route::middleware(['auth','admin'])->prefix('admin')->namespace('Admin')->group(
 	Route::post('/rents/{id}/images','RentImageController@store'); //subir las imagenes
 	Route::delete('/rents/{id}/images','RentImageController@destroy'); //eliminar las imagenes
 	Route::get('/rents/{id}/images/select/{image}','RentImageController@select'); //destacar imagen
+
+	Route::get('/rentcategories','RentCategoryController@index'); //listado de productos
+	Route::get('/rentcategories/create','RentCategoryController@create'); //formulario
+	Route::post('/rentcategories','RentCategoryController@store'); //guardar datos que el usuario ingresa
+	Route::get('/rentcategories/{rentcategories}/edit','RentCategoryController@edit'); //formulario edicion
+	Route::post('/rentcategories/{rentcategories}/edit','RentCategoryController@update'); //actualizar los datos
+	Route::delete('/rentcategories/{rentcategories}','RentCategoryController@destroy'); //formulario de eliminar
 	// TERMINA EL CRUD NUEVO
 		
 

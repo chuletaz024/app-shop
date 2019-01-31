@@ -7,20 +7,23 @@ use Illuminate\Http\Request;
 use App\ProductRent;
 use App\Category;
 use App\CategoryRent;
+use App\RentCategory;
 
 
 class ProductRentController extends Controller
 {
     public function index()
     {
+        $rents = RentCategory::get();
     	 $categories = Category::has('products')->get();
     	$products = ProductRent::paginate(10);
-    	return view('admin.rents.index')->with(compact('products','categories')); //devuelve la vista con la lista 
+    	return view('admin.rents.index')->with(compact('products','categories','rents')); //devuelve la vista con la lista 
     }
     public function create()
     {
+        $rents = RentCategory::get();
     	$categories = Category::has('products')->get();
-    	return view('admin.rents.create')->with(compact('categories')); //formulario para poder registrar 
+    	return view('admin.rents.create')->with(compact('categories','rents')); //formulario para poder registrar 
     }
     public function store(Request $request)
     {
@@ -60,9 +63,10 @@ class ProductRentController extends Controller
     }
     public function edit($id)
     {
+        $rents = RentCategory::get();
     	$categories = Category::has('products')->get();
     	$product = ProductRent::find($id);
-    	return view('admin.rents.edit')->with(compact('product','categories'));
+    	return view('admin.rents.edit')->with(compact('product','categories','rents'));
     }
 
     public function update(Request $request, $id)

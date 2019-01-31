@@ -13,14 +13,17 @@ class RentController extends Controller
 {
     public function index()
     {
+        $rents = RentCategory::get();
     	$categories = Category::has('products')->get();
     	$products = Rent::paginate(10);
-    	return view('admin.rents.index')->with(compact('products','categories')); //listado
+    	return view('admin.rents.index')->with(compact('products','categories','rents')); //listado
     }
     public function create()
     {
+        $rents = RentCategory::get();
     	$categories = Category::orderBy('name')->get();
-    	return view('admin.rents.create')->with(compact('categories'));
+        $rentcategories= RentCategory::orderBy('name')->get();
+    	return view('admin.rents.create')->with(compact('categories','rentcategories','rents'));
 
     }
     public function store(Request $request)
@@ -62,10 +65,11 @@ class RentController extends Controller
     }
     public function edit($id)
     {
-        
+        $rents = RentCategory::get();
     	$categories = Category::orderBy('name')->get();
     	$product = Rent::find($id);
-    	return view('admin.rents.edit')->with(compact('product', 'categories')); //form de edicion
+        $rentcategories= RentCategory::orderBy('name')->get();
+    	return view('admin.rents.edit')->with(compact('product', 'categories','rentcategories','rents')); //form de edicion
     }
      public function update(Request $request, $id)
     {

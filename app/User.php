@@ -7,6 +7,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -33,6 +34,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Cart::class);
     }
+    public function rentcarts()
+    {
+        return $this->hasMany(RentCart::class);
+    }
 
     //Cart_id
     public function getCartAttribute()
@@ -48,8 +53,19 @@ class User extends Authenticatable
                 $cart->save();
 
                 return $cart;
-            
-        
+    }
+    public function getRentCartAttribute()
+    {
+        $rentcart = $this->rentcarts()->where('status', 'Active')->first();
+        if ($rentcart) 
+            return $rentcart;
 
+            //else 
+                $rentcart = new RentCart();
+                $rentcart->status = 'Active';
+                $rentcart->user_id = $this->id;
+                $rentcart->save();
+
+                return $rentcart;
     }
 }

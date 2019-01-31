@@ -58,9 +58,9 @@
                                     <label class="control-label">Categoria del producto</label>
                                     <select class="form-control" name="category_id">
                                         <option value="0">General</option>
-                                        @foreach ($categories as $category)
-                                        <option value="{{ $category->id }}" @if ($category->id == old('category_id',$product->category_id)) selected @endif">
-                                            {{ $category->name }}
+                                        @foreach ($rentcategories as $rentcategory)
+                                        <option value="{{ $rentcategory->id }}" @if ($rentcategory->id == old('category_id',$product->category_id)) selected @endif">
+                                            {{ $rentcategory->name }}
                                         </option>
                                         @endforeach
                                     </select>
